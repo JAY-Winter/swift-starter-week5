@@ -13,4 +13,6 @@ struct AuditionManager {
     var passedApplicantsList: [Person] = []
     
     func cast() { }
+    
+    func announcePassedApplicants() { }
 }
