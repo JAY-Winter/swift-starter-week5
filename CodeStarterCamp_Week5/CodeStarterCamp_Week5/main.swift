@@ -14,4 +14,13 @@ let coda = TalentedPerson(name: "coda", height: 200, singing: .A, dancing: .C, a
 let odong = TalentedPersonWithBadPersonality(name: "odong", height: 400, singing: .A, dancing: .A, acting: .A, frequencyOfCursing: .A)
 
 
-let jay = AuditionManager(totalApplicantsList: [yagom, noroo, summer, coda, odong])
+var jay = AuditionManager(totalApplicantsList: [yagom, noroo, summer, coda, odong])
+
+do {
+    try jay.cast()
+    }
+catch ErrorList.실력이뛰어나나인성이좋지않음 {
+    print("실력이 뛰어나나 인성이 좋지 않음")
+    
+}
+jay.announcePassedApplicants()
