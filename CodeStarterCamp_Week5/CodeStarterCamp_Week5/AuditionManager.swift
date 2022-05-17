@@ -8,12 +8,20 @@
 import Foundation
 
 struct AuditionManager {
-    var totalApplicantsList: [Person]
     
-    var passedApplicantsList: [Person] = []
+    var 지원서정보: Person? {
+        didSet {
+            guard let 지원서정보 = 지원서정보 else { return }
+            totalApplicantsList.append(지원서정보)
+        }
+    }
+    
+    public private(set) var totalApplicantsList: [Person]
+    
+    private var passedApplicantsList: [Person] = []
     
     mutating func cast() throws {
-
+        
         for applicant in totalApplicantsList {
             guard let talentedApplicant = applicant as? Talent else { continue }
             
@@ -37,5 +45,9 @@ struct AuditionManager {
               --------------
               축하합니다!!
               """)
+    }
+    
+    init(totalApplicantsList: [Person]) {
+        self.totalApplicantsList = totalApplicantsList
     }
 }
