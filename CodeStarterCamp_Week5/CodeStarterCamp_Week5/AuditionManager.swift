@@ -8,14 +8,6 @@
 import Foundation
 
 struct AuditionManager {
-    
-    var 지원서정보: Person? {
-        didSet {
-            guard let 지원서정보 = 지원서정보 else { return }
-            totalApplicantsList.append(지원서정보)
-        }
-    }
-    
     public private(set) var totalApplicantsList: [Person]
     
     private var passedApplicantsList: [Person] = []
